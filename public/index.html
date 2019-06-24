@@ -30,8 +30,8 @@
       </div>
     </div>
 
-    <div id="diary-card" class="inactive">
-      <div id="diary-card-title">
+    <div id="diary-card" class="diary-card inactive">
+      <div id="diary-card-title" class="diary-card-title">
         <h1><span class="underline" id="diary-card-date">May 26</span></h1>
       </div>
       <div id="diary-card-note" class="diary-card-content">
@@ -44,12 +44,28 @@
       </div>
 
       <div id="diary-card-flooter" class="gohome-flooter ">
-        <a href="" id="prev-diary-card" class="diary-card-cheveron-link"><img class="diary-card-cheveron" src="img/baseline_chevron_left_black_48dp.png" alt="Prev"></a>
-        <span onclick="gohome();">HOME</span>
-        <a href="" id="next-diary-card" class="diary-card-cheveron-link"><img class="diary-card-cheveron" src="img/baseline_chevron_right_black_48dp.png" alt="Next"></a>
+        <span id="prev-diary-card" class="diary-card-cheveron-link"><img class="diary-card-cheveron" src="img/baseline_chevron_left_black_48dp.png" alt="Prev"></span>
+        <span id="diary-card-gohome">HOME</span>
+        <span id="next-diary-card" class="diary-card-cheveron-link"><img class="diary-card-cheveron" src="img/baseline_chevron_right_black_48dp.png" alt="Next"></span>
       </div>
     </div>
 
+    <div id="diary-card-edit" class="diary-card inactive">
+      <div id="diary-card-edit-title" class="diary-card-title">
+        <h1><span class="underline" id="diary-card-edit-date">May 26</span></h1>
+      </div>
+      <div id="diary-card-edit-note" class="diary-card-content">
+        Note : Your journal will be viewable and editable to anyone who has the link!
+      </div>
+      <textarea id="diary-card-edit-content" class="diary-card-content" contenteditable="true" placeholder="enter content"></textarea>
+      <div id="diary-card-edit-button-submit">
+        <span class="diary-button">SUBMIT</span>
+      </div>
+
+      <div id="diary-card-edit-flooter" class="gohome-flooter ">
+        <span id="diary-card-edit-gohome">HOME</span>
+      </div>
+    </div>
 
     <div id="calendar" class="calendar inactive">
 

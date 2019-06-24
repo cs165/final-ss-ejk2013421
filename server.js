@@ -65,18 +65,55 @@ async function getdate(req, res) {
 }
 app.get('/date/:year/:month/:day', getdate);
 
-async function onPost(req, res) {
+async function getmonthstate(req, res) {
     const result = await sheet.getRows();
     const rows = result.rows;
+    const year  = req.params.year;
+    const month  = parseInt(req.params.month);
+    console.log(rows);
+
+    var output=[];
+    var state=[];
+
+    var diarystate={};
+    var notestate={};
+    for(let i=1;i<=31;i++){
+        diarystate[i]=0;
+        notestate[i]=0;
+    }
+
+    for(let i=1;i<rows.length;i++){
+        if(rows[i][1]==year && rows[i][2]==month){
+            if(rows[i][4]==2)notestate[rows[i][3]]++;
+            else if(rows[i][4]==1)diarystate[rows[i][3]]=1;
+
+        }
+    }
+    state.push(diarystate);
+    state.push(notestate);
+    output.push(state);
+    res.json( output );
+}
+app.get('/date/:year/:month', getmonthstate);
+
+async function onPost(req, res) {
+    console.log("onPost");
+    const result = await sheet.getRows();
+    const rows = result.rows;
+    const year  = req.params.year;
+    const month  = req.params.month;
+    const day = req.params.day;
     const messageBody = req.body;
     const key = Object.keys(messageBody);
     const value = Object.values(messageBody);
 
     var row_post=[];
 
-    for(i=0;i<value.length;i++){
-        row_post[rows[0].indexOf(key[i])]=value[i];
-    }
+    row_post[1]=parseInt(year);
+    row_post[2]=parseInt(month);
+    row_post[3]=parseInt(day);
+    row_post[4]=1;
+    row_post[5]=messageBody[0];
 
     console.log("POST the row to sheet : [ " +  row_post +" ]");
 
@@ -87,7 +124,43 @@ async function onPost(req, res) {
             res.json( { response })
         });
 }
-app.post('/api', jsonParser, onPost);
+app.post('/api/:year/:month/:day', jsonParser, onPost);
+
+async function onPatch(req, res) {
+    const column  = req.params.column;
+    const value  = req.params.value;
+    const result = await sheet.getRows();
+    const rows = result.rows ;
+    const year  = req.params.year;
+    const month  = req.params.month;
+    const day = req.params.day;
+    const messageBody = req.body;
+    const mkey = Object.keys(messageBody);
+    const mvalue = Object.values(messageBody);
+    var output=null;
+    var row_patch=[];
+
+    row_patch[1]=parseInt(year);
+    row_patch[2]=parseInt(month);
+    row_patch[3]=parseInt(day);
+    row_patch[4]=1;
+    row_patch[5]=messageBody[0];
+
+    for(let i=1;i<rows.length;i++){
+        if(rows[i][1]==year && rows[i][2]==month && rows[i][3]==day) {
+            sheet.setRow(i, row_patch).then(
+                function (resp) {
+                    const response = resp["response"];
+                    res.json({response});
+                }
+            );
+            console.log("PATCH the row  [ " +  rows[i] + " ]" + " to row : [ " +  row_patch +" ]");
+            break;
+        }
+    }
+
+}
+app.patch('/api/:year/:month/:day', jsonParser, onPatch);
 
 async function getId(req, res) {
 
@@ -97,10 +170,6 @@ async function getId(req, res) {
     console.log(rows);
 
     var output=[];
-
-    for(let i=1;i<rows.length;i++){
-
-    }
 
     for(let i=1;i<rows.length;i++){
         if(rows[i][1]==value) {

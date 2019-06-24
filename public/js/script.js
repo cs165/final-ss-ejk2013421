@@ -2,13 +2,6 @@
 // TODO(you): Add the JavaScript necessary to complete your final project.
 //
 const app = new App();
-function gohome() {
-    document.querySelector("#diary").classList.remove("inactive");
-    document.querySelector("#diary-card").classList.add("inactive");
-    document.querySelector("#calendar").classList.add("inactive");
-}
-
-
 
 (() => {
     async function onSubmit(event) {

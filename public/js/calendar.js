@@ -49,7 +49,7 @@ class Calendar{
     }
 
     refreshDate(){
-        console.log("enter refreshDate");
+        //console.log("enter refreshDate");
         var str = "";
         var totalDay = this.daysMonth(this.my_month, this.my_year);
         var firstDay = this.dayStart(this.my_month, this.my_year);
@@ -65,7 +65,12 @@ class Calendar{
             }else{
                 myclass = " class='darkgrey'";
             }
-            str += "<li"+myclass+" data-date='"+this.my_year+'/'+(this.my_month+1)+'/'+i+"'>"+i+"<p class='haven-diary'>日記</p><p class='haven-diary'>記事*2</p></li>";
+            str += "<li"+myclass+" data-date='"+this.my_year+'/'+(this.my_month+1)+'/'+i+"'>"+i;
+            /*
+            if(this.monthstate[i])
+                str+="<p class='haven-diary'>日記</p><p class='haven-diary'>記事*2</p>";
+                */
+            str+="</li>";
         }
         this.holder.innerHTML = str;
         this.ctitle.innerHTML = this.month_name[this.my_month];

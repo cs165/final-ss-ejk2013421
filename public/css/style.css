@@ -80,10 +80,10 @@ body{
 }
 
 /*----------------------------------diary-card----------------------------------*/
-#diary-card{
+.diary-card{
     text-align: center;
 }
-#diary-card-title{
+.diary-card-title{
     font-weight:bold;
     font-size:2rem;
     margin-top: 10rem;
@@ -112,6 +112,7 @@ body{
     opacity: 0.5;
     height: 8vh;
 }
+/*---------------------------------------*/
 .gohome-flooter > span{
     margin: 0 15vw 0 15vw;
     align-self: center;

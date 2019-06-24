@@ -1,0 +1,84 @@
+@media screen and (min-height: 651px){
+    html{
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-height: 30px) and (max-height:650px){
+    html{
+        font-size: 8px;
+    }
+}
+
+@media screen and (max-width: 741px){
+    #week-E{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 740px){
+    #week-B{
+        display: none;
+    }
+}
+
+.calendar{
+    width:85%;
+    height:40rem;
+    margin: 0 auto;
+    background:#fff;
+    box-shadow:0 1px 1px rgba(0,0,0,0.1);
+}
+
+.calendar-title{
+    text-align: center;
+}
+
+.left-cheveron{
+    margin-top: 3vh;
+    float: left;
+}
+
+.right-cheveron{
+    margin-top: 3vh;
+    float:right;
+}
+
+.calendar-body-list ul{
+    width:100%;
+    font-family:"arial";
+    font-weight:bold;
+    font-size:2rem;
+    padding: 0;
+}
+.calendar-body-list ul li{
+    width:14.28%;
+    height:5rem;
+    list-style-type:none;
+    display:block;
+    box-sizing:border-box;
+    float:left;
+    text-align:center;
+}
+
+.haven-diary{
+    font-size: 0.5rem;
+    color: white;
+    background: black;
+    border-radius:10px;
+    margin: 0.3rem;
+}
+
+.lightgrey{
+    color:#a8a8a8; /*浅灰色*/
+}
+.darkgrey{
+    color:#565656; /*深灰色*/
+}
+.green{
+    color:#6ac13c; /*绿色*/
+}
+.greenbox{
+    border:1px solid #6ac13c;
+    background:#e9f8df; /*浅绿色背景*/
+}

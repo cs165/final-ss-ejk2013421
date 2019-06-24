@@ -5,9 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>CS193x Final Project</title>
     <link rel="stylesheet" href="css/style.css"/>
+    <link rel='stylesheet' href='css/cal.css' />
+
+    <script src="js/calendar.js" defer></script>
+    <script src="js/app.js" defer></script>
     <script src="js/script.js" defer></script>
+
+
   </head>
   <body>
     <!-- TODO(you): Add the HTML necessary to complete your final project. -->
+    <div id="diary" class="">
+      <div id="diary-title">
+        <h1>Create a Dialy Journal</h1>
+      </div>
+      <div id="diary-note">
+        Note : Your journal will be viewable and editable to anyone who has the link!
+      </div>
+      <div id="diary-button-create">
+        <span class="diary-button">CREATE A NEW JOURANL</span>
+      </div>
+      <div id="diary-button-calendar">
+        <span class="diary-button">SEE THE CALENDAR</span>
+      </div>
+    </div>
+
+    <div id="diary-card" class="inactive">
+      <div id="diary-card-title">
+        <h1><span class="underline" id="diary-card-date">May 26</span></h1>
+      </div>
+      <div id="diary-card-note" class="diary-card-content">
+        Note : Your journal will be viewable and editable to anyone who has the link!
+      </div>
+      <div id="diary-card-content" class="diary-card-content">
+      </div>
+      <div id="diary-card-button-edit">
+        <span class="diary-button">EDIT</span>
+      </div>
+
+      <div id="diary-card-flooter" class="gohome-flooter ">
+        <a href="" id="prev-diary-card" class="diary-card-cheveron-link"><img class="diary-card-cheveron" src="img/baseline_chevron_left_black_48dp.png" alt="Prev"></a>
+        <span onclick="gohome();">HOME</span>
+        <a href="" id="next-diary-card" class="diary-card-cheveron-link"><img class="diary-card-cheveron" src="img/baseline_chevron_right_black_48dp.png" alt="Next"></a>
+      </div>
+    </div>
+
+
+    <div id="calendar" class="calendar inactive">
+
+      <div class="calendar-title">
+        <p id="prev" class="left-cheveron pointer"><img src="img/baseline_chevron_left_black_18dp.png" alt="Prev Month"></p>
+        <p id="next" class="right-cheveron pointer"><img src="img/baseline_chevron_right_black_18dp.png" alt="Next Month"></p>
+        <h1 class="green" id="calendar-title">Month</h1>
+        <h2 class="green small" id="calendar-year">Year</h2>
+
+      </div>
+      <div class="calendar-body">
+        <div class="lightgrey calendar-body-list" id="week-E">
+          <ul>
+            <li>MON</li>
+            <li>TUE</li>
+            <li>WED</li>
+            <li>THU</li>
+            <li>FRI</li>
+            <li>SAT</li>
+            <li>SUN</li>
+          </ul>
+        </div>
+        <div class="lightgrey calendar-body-list" id="week-B">
+          <ul>
+            <li>一</li>
+            <li>二</li>
+            <li>三</li>
+            <li>四</li>
+            <li>五</li>
+            <li>六</li>
+            <li>日</li>
+          </ul>
+        </div>
+        <div class="darkgrey calendar-body-list">
+          <ul id="days">
+          </ul>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

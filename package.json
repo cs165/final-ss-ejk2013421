@@ -5,12 +5,16 @@
   "main": "server.js",
   "engines": {
     "node": "12.3.1",
-    "npm":"6.9.0"
+    "npm": "6.9.0"
   },
   "dependencies": {
-    "body-parser": "^1.17.1",
+    "body-parser": "1.8",
+    "connect": "^3.7.0",
+    "ejs": "^2.6.2",
     "express": "^4.15.2",
-    "gsa-sheets": "^1.0.2"
+    "express-partials": "^0.3.0",
+    "gsa-sheets": "^1.0.2",
+    "sha1": "^1.1.1"
   },
   "scripts": {
     "start": "node server.js",

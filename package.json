@@ -11,7 +11,7 @@
     "body-parser": "1.8",
     "connect": "^3.7.0",
     "ejs": "^2.6.2",
-    "express": "^4.15.2",
+    "express": "^4.17.3",
     "express-partials": "^0.3.0",
     "gsa-sheets": "^1.0.2",
     "sha1": "^1.1.1"
